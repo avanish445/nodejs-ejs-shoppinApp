@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/product.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <%- include('../includes/navigation')%>
+    <main class="main-products">
+      <h2>My Products</h2>
+      <% if(products.length>0){%>
+      <div>
+        <div class="product-card">
+          <%for(prod of products){%>
+          <div class="product-card__content">
+            <img src="/<%=prod.imageUrl%>" alt="NO Image" />
+            <div class="procuct-info">
+              <span class="title"><%=prod.title%></span>
+              <span class="desc"><%=prod.description%></span>
+              <span class="price">Rs. <%=prod.price%></span>
+            </div>
+            <div class="product-action">
+              <a class="btn" href="/admin/edit-product/<%=prod._id%>">Edit</a>
+              <form action="/admin/delete-product" method="POST">
+                <button type="submit" class="btn">Delete</button>
+                <input type="hidden" value="<%=prod._id%>" name="productId" />
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+              </form>
+            </div>
+          </div>
+          <%}%>
+        </div>
+        <%- include('../includes/pagination')%>
+      </div>
+      <%}else{%>
+      <p>My Products is Empty</p>
+      <%}%>
+    </main>
+  </body>
+</html>

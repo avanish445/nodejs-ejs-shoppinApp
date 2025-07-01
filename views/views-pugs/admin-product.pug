@@ -1,0 +1,11 @@
+extends ../layouts/layouts-pugs/main-layout.pug
+
+block styles
+    link(rel="stylesheet" href="/css/form.css")
+block content
+        main
+            form.product-form(action="/admin/add-product" method="POST")
+                .form
+                    label(for="title") Title 
+                    input(type="text" placeholder="Add product" name="title")#title
+                    button(type="submit") Send 

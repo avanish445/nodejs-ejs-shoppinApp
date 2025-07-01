@@ -1,0 +1,18 @@
+extends ../layouts/layouts-pugs/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/product.css")
+
+block content
+    main.main-products
+        h2 My Products
+        if products.length > 0
+            div.product-card
+                each product in products 
+                    div.product-card__content
+                        img(src="product.jpg", alt="",)
+                        .procuct-details 
+                            span #{product.title}
+                            span #{product.price}
+        else 
+            p My Products is Empty

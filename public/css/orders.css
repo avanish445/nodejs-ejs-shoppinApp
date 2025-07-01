@@ -1,0 +1,40 @@
+.order-container {
+  max-width: 80vw;
+  margin: 0px auto;
+}
+
+.order-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(15, 67, 67, 0.2);
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.order-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin-top: 15px;
+}
+.order-content {
+  display: flex;
+  gap: 20px;
+}
+
+.order-list img {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #686666;
+  border-radius: 10px;
+}
+
+.total-price {
+  background-color: rgba(15, 67, 67, 0.2);
+  margin: 10px 0px;
+  border-radius: 10px;
+  padding: 10px 20px;
+}

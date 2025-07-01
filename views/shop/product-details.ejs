@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/product.css" />
+  </head>
+  <body>
+    <%- include('../includes/navigation')%>
+    <h1 class="main-head-text"><%=product.title%></h1>
+    <hr />
+    <main class="product-details__card">
+      <div class="product-details__card-content">
+        <img class="img" src="<%=product.imageUrl%>" alt="NO Image" />
+        <div class="procuct-info">
+          <!-- <span class="title"><%=product.title%></span> -->
+          <span><%=product.description%></span>
+          <h4>Rs. <%=product.price%></h4>
+        </div>
+        <div class="cart-action">
+          <% if (authenticated) { %> <%- include('../includes/add-to-cart', { product: product }) %>
+          <% } else { %>
+          <a class="btn" href="/login">Add to Cart</a>
+          <% } %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "starter-project",
+  "version": "1.0.0",
+  "description": "first project",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^4.0.0",
+    "csurf": "^1.11.0",
+    "express": "^4.19.2",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "mongodb": "^4.1.4",
+    "mongoose": "^7.4.1",
+    "multer": "^2.0.1",
+    "mysql2": "^3.11.3",
+    "nodemailer": "^6.9.16",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "pdfkit": "^0.17.1",
+    "sequelize": "^6.37.4",
+    "stripe": "^18.2.1"
+  }
+}

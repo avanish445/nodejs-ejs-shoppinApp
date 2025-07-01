@@ -1,0 +1,5 @@
+<section class="pagination">
+  <%Array.from({length:totalPage}, (_, idx)=>{%>
+  <a href="?page=<%=idx+1%>" class="<%= currentPage == idx+1?'active':''%>"><%=idx+1%></a>
+  <%})%>
+</section>

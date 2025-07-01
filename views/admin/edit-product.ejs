@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+  </head>
+  <body>
+    <%- include('../includes/navigation')%>
+    <main>
+      <% if(errorMessage){%>
+      <div class="user-message user-message--error"><%=errorMessage%></div>
+      <%}%>
+      <div class="product-form">
+        <form
+          class="form"
+          action="/admin/<% if (editing) {%>edit-product <%} else {%>add-product<%}%>"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="form-control">
+            <label for="name">Product</label>
+            <input
+              type="text"
+              placeholder="Add product"
+              name="title"
+              id="title"
+              value="<%if(editing){%><%=product.title%><%}%>"
+            />
+          </div>
+          <div class="form-control">
+            <label for="price">Price</label>
+            <input
+              type="number"
+              placeholder="Add price"
+              name="price"
+              id="price"
+              value="<%if(editing){%><%=product.price%><%}%>"
+            />
+          </div>
+          <div class="form-control">
+            <label for="image">Image</label>
+            <input type="file" placeholder="Choose file" name="image" id="image" />
+          </div>
+          <div class="form-control">
+            <label for="description">Description</label>
+            <textarea
+              rows="4"
+              type="text"
+              placeholder="Add description"
+              name="description"
+              id="description"
+            >
+<%if(editing){%><%=product.description%><%}%>
+</textarea
+            >
+            <%if(editing){%><input type="hidden" name="productId" value="<%=product._id%>" /><%}%>
+          </div>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button type="submit"><% if (editing) {%> Edit <%} else {%> Send <%}%></button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/product.css" />
+  </head>
+  <body>
+    <%- include('../includes/navigation')%>
+    <main class="main-products">
+      <h2>My Cart</h2>
+      <% if(products.length>0){%>
+      <div class="product-card">
+        <%for(prod of products){%>
+        <div class="product-card__content">
+          <img src="/<%=prod.productId.imageUrl%>" alt="NO Image" />
+          <div class="procuct-info">
+            <span class="title"><%=prod.productId.title%> (<%=prod.quantity%>)</span>
+            <span class="desc"><%=prod.productId.description%></span>
+            <span class="price">Price: &#x20B9; <%=prod.productId.price*prod.quantity%></span>
+          </div>
+          <div class="cart-action">
+            <!-- <a class="btn" href="/admin/edit-product/<%=prod.id%>">Edit</a> -->
+            <form action="/delete-cart" method="POST">
+              <button type="submit" class="btn">Delete</button>
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+              <input type="hidden" value="<%=prod.productId._id%>" name="productId" />
+            </form>
+          </div>
+        </div>
+        <%}%>
+      </div>
+      <div class="order-now">
+        <!-- <form action="/create-order" method="GET">
+          <button type="submit" class="btn">Order Now!</button>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <input type="hidden" value="<%=prod.id%>" name="productId" />
+        </form> -->
+        <a class="btn" href="/checkout">Order Now!</a>
+      </div>
+      <%}else{%>
+      <p>My Products is Empty</p>
+      <%}%>
+    </main>
+  </body>
+</html>

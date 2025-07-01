@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/product.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <%- include('../includes/navigation')%>
+    <main>
+      <h2>My Products</h2>
+      <% if(products.length>0){%>
+      <div>
+        <div class="product-card">
+          <%for(prod of products){%>
+          <div class="product-card__content">
+            <img src="/<%=prod.imageUrl%>" alt="NO Image" />
+            <div class="procuct-info">
+              <span class="title"><%=prod.title%></span>
+              <span class="desc"><%=prod.description%></span>
+              <span class="price">Rs. <%=prod.price%></span>
+            </div>
+            <div class="cart-action">
+              <% if (authenticated) { %> <%- include('../includes/add-to-cart', { product: prod })
+              %> <% } else { %>
+              <a class="btn" href="/login">Add to Cart</a>
+              <% } %>
+            </div>
+          </div>
+          <%}%>
+        </div>
+        <%- include('../includes/pagination')%>
+      </div>
+      <%}else{%>
+      <p>My Products is Empty</p>
+      <%}%>
+    </main>
+  </body>
+</html>

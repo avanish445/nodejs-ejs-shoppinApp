@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <%- include('../includes/navigation')%>
+    <main>
+      <% if(errorMessage){%>
+      <div class="user-message user-message--error"><%=errorMessage%></div>
+      <%}%>
+      <div class="product-form">
+        <form class="form" action="/login" method="POST">
+          <div class="form-control">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              placeholder="Enter Email"
+              name="email"
+              value="<%=oldInput.email%>"
+              id="email"
+              class="<%= validationMsg.find(e=>e.path === 'email') ? 'invalid':''%>"
+            />
+          </div>
+          <div class="form-control">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              id="password"
+              value="<%=oldInput.password%>"
+              class="<%= validationMsg.find(e=>e.path === 'password') ? 'invalid':''%>"
+            />
+          </div>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      <div class="centered">
+        <a href="/reset">Reset Password</a>
+      </div>
+    </main>
+  </body>
+</html>

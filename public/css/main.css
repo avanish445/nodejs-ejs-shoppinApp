@@ -1,0 +1,30 @@
+.centered {
+  display: flex;
+  justify-content: center;
+}
+.pagination {
+  text-align: center;
+  margin: 2rem;
+}
+.pagination a {
+  color: rgb(15, 67, 67);
+  background-color: #fff;
+  border: 1px solid rgb(15, 67, 67);
+  padding: 0.5rem;
+}
+.pagination a:hover,
+.pagination a:active,
+.pagination a.active {
+  background-color: rgb(15, 67, 67);
+  color: #fff;
+}
+/* .btn {
+  width: 100px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 8px 0px;
+  border-radius: 5px;
+  background-color: rgb(15, 67, 67);
+  color: #fff;
+  border: none;
+} */

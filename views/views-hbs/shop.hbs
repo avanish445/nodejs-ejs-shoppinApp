@@ -1,0 +1,18 @@
+<main class='main-products'>
+  <h2>My Products</h2>
+  {{#if hasProduct}}
+    <div class='product-card'>
+      {{#each products}}
+        <div class='product-card__content'>
+          <img src='./product.jpg' alt='' />
+          <div class='procuct-details'>
+            <span>{{this.title}}</span>
+            <span>{{this.price}}</span>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <p>My Products is Empty</p>
+  {{/if}}
+</main>

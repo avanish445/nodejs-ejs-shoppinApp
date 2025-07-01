@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <%- include('../includes/navigation')%>
+    <main>
+      <% if(errorMessage){%>
+      <div class="user-message user-message--error"><%=errorMessage%></div>
+      <%}%>
+      <div class="product-form">
+        <form class="form" action="/signup" method="POST">
+          <div class="form-control">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              placeholder="Enter Name"
+              name="name"
+              id="name"
+              value="<%=oldInput.name%>"
+            />
+          </div>
+          <div class="form-control">
+            <label for="email">Email</label>
+            <input
+              class="<%= validationMsg.find(e=>e.path === 'email') ? 'invalid':''%>"
+              type="text"
+              placeholder="Enter Email"
+              name="email"
+              id="email"
+              value="<%=oldInput.email%>"
+            />
+          </div>
+          <div class="form-control">
+            <label for="password">Password</label>
+            <input
+              class="<%= validationMsg.find(e=>e.path === 'password') ? 'invalid':''%>"
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              id="password"
+              value="<%=oldInput.password%>"
+            />
+          </div>
+          <div class="form-control">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              class="<%= validationMsg.find(e=>e.path === 'confirmPassword') ? 'invalid':''%>"
+              type="password"
+              placeholder="Enter Password"
+              name="confirmPassword"
+              id="confirmPassword"
+              value="<%=oldInput.confirmPassword%>"
+            />
+          </div>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button type="submit">SignUp</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
