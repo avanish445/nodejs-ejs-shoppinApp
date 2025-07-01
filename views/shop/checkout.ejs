@@ -34,7 +34,7 @@
         <script src="https://js.stripe.com/basil/stripe.js"></script>
         <script>
           const order = document.getElementById('order-btn')
-          var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx')
+          var stripe = Stripe('')
           order.addEventListener('click', () => {
             stripe.redirectToCheckout({
               sessionId: '<%= sessionId %>',
