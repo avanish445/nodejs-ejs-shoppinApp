@@ -41,7 +41,7 @@ const fileFilter = (req, file, cb) => {
         cb(null, false);
     }
 };
-const MONGODB_URI = 'mongodb+srv://avanish:jsr1052@cluster0.y0wr0.mongodb.net/shop?retryWrites=true&w=majority&appName=Cluster0'
+const MONGODB_URI = ''
 const store = new MongoDbStore({
     uri: MONGODB_URI,
     collection: 'sessions'

@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const rootDir = require('../utils/path')
 const PDFDocument = require('pdfkit');
-const stripe = require('stripe')('sk_test_51RYrx9E09a6IHgXJvUIkSOUEeXYyUArxGOmJEoNvjBrxv3zDOZggJZIuEQchrsDnPSbGkyW8EhtFStWBPnp8nnTi00NpTCcJJZ')
+const stripe = require('stripe')('')
 const ITEMS_PER_PAGE = 3;
 
 exports.postCreateOrder = (req, res, next) => {
